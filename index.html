@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Huffman Image Compressor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Huffman Image Compressor</h1>
+  <p>Upload an image, choose the size you need, get the compressed file. Everything runs in your browser.</p>
+</header>
+
+<main>
+  <section class="step" id="s1">
+    <h2><span>1</span>Upload image</h2>
+    <label id="drop" for="file">
+      <strong>Choose an image</strong> or drop it here
+      <small>JPG, PNG, BMP, TIFF</small>
+    </label>
+    <input type="file" id="file" accept="image/*" hidden>
+  </section>
+
+  <section class="step" id="s2" hidden>
+    <h2><span>2</span>Image details</h2>
+    <div class="split">
+      <canvas id="preview"></canvas>
+      <dl id="details"></dl>
+    </div>
+  </section>
+
+  <section class="step" id="s3" hidden>
+    <h2><span>3</span>Required size</h2>
+    <div class="row">
+      <input type="number" id="target" min="1" step="any" placeholder="e.g. 200" aria-label="Target size">
+      <select id="unit" aria-label="Unit"><option>KB</option><option>MB</option></select>
+      <button id="go">Compress image</button>
+    </div>
+    <p class="hint" id="hint"></p>
+    <p class="err" id="msg" role="alert"></p>
+  </section>
+
+  <section class="step" id="s4" hidden>
+    <h2><span>4</span>Result</h2>
+    <p id="summary" class="summary"></p>
+    <div class="split">
+      <figure><canvas id="out"></canvas><figcaption>Decoded from .huff</figcaption></figure>
+      <dl id="stats"></dl>
+    </div>
+    <div class="row">
+      <button id="dlHuff">Download .huff file</button>
+      <button id="dlPng" class="ghost">Download decoded PNG</button>
+    </div>
+    <p class="hint">The .huff file is the real compressed data. The PNG is only for viewing, so its size will differ.</p>
+    <details>
+      <summary>Frequency and Huffman code table</summary>
+      <div class="scroll"><table id="tbl"></table></div>
+    </details>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
