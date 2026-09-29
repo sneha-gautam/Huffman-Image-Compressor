@@ -2,9 +2,10 @@
 
 A small tool that compresses an image with Huffman coding, and it all runs in your browser. Drop in a colour image, tell it how big you want the file to be, and it gives you back a compressed `.huff` file. Your image never leaves your computer.
 
-**Try it:** <add your link here>
+**Try it:** <https://sneha-gautam.github.io/Huffman-Image-Compressor/>
 
-![Screenshot](screenshot.png)
+![Uploading image.png…]()
+
 
 ## Why I made this
 
